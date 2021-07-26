@@ -1,0 +1,29 @@
+﻿<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h3>Movie List</h3>
+    </div>
+    <div class="col-6">
+        <a asp-action="Upsert" asp-controller="Movies" class="btn btn-info form-control text-white float-right" style="cursor: pointer; margin-bottom: 7px; width: 170px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+            Add New Movie
+        </a>
+    </div>
+    <div class="col-12 border p-3">
+        <table id="DT_loadMovie" class="responsive display nowrap table stripe table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Genre</th>
+                    <th>Director</th>
+                    <th>Year</th>
+                    <th class="text-center">Modify</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/movieList.js"></script>
+}
+

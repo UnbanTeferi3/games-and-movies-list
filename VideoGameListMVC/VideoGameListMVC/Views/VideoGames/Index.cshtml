@@ -1,0 +1,55 @@
+﻿<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h3>Video Game List</h3>
+    </div>
+    <div class="col-6">
+        <a asp-action="Upsert" asp-controller="VideoGames" class="btn btn-info form-control text-white float-right" style="cursor:pointer; margin-bottom:7px; width:170px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+            Add New Game
+        </a>
+    </div>
+    <div class="col-12 border p-3">
+        <table id="DT_load" class="responsive display nowrap table stripe table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Director</th>
+                    <th>System</th>
+                    <th>Year</th>
+                    <th class="text-center">Modify</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    @*<table id="DT_load" class="responsive display nowrap" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>System</th>
+                    <th>Year</th>
+                    <th class="text-center">Modify</th>
+                </tr>
+            </thead>
+        </table>*@
+    @*<div class="col-12 border p-3">
+            <table id="DT_load" class="display responsive nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Company</th>
+                        <th>System</th>
+                        <th>Year</th>
+                        <th class="text-center">Modify</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>*@
+</div>
+
+    
+
+@section Scripts{
+    <script src="~/js/videoGameList.js"></script>
+}

@@ -1,0 +1,70 @@
+﻿@model VideoGameListMVC.Models.Movie
+
+<br />
+<h3 class="text-white">@(Model.Id!=0 ? "Edit" : "Create") Movie</h3>
+<br />
+
+<div class="border container" style="padding: 30px; width:700px; max-width: 100%" >
+    <form method="post" asp-action="Upsert" id="form_id">
+        @if (Model.Id != 0)
+        {
+            <input type="hidden" asp-for="Id" />
+        }
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3" style="position: relative;">
+                <label asp-for="Name" style="position: absolute; top: 50%; transform: translate(0, -50%);"></label>
+            </div>
+            <div class="col-9">
+                <input asp-for="Name" class="form-control" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3" style="position: relative;">
+                <label asp-for="Genre" style="position: absolute; top: 50%; transform: translate(0, -50%);"></label>
+            </div>
+            <div class="col-9">
+                <input asp-for="Genre" class="form-control" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" />
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3" style="position: relative;">
+                <label asp-for="Director" style="position: absolute; top: 50%; transform: translate(0, -50%);"></label>
+            </div>
+            <div class="col-9">
+                <input asp-for="Director" class="form-control" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" />
+                <span asp-validation-for="Director" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3" style="position: relative;">
+                <label asp-for="YearReleased" style="position: absolute; top: 50%; transform: translate(0, -50%);">Year</label>
+            </div>
+            <div class="col-9">
+                <input type="number" asp-for="YearReleased" class="form-control" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" />
+                <span asp-validation-for="YearReleased" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4 offset-3">
+                <a onclick="CheckLimit('/Movies/GetCount/')" class="btn btn-info form-control text-white" role="button" style="cursor: pointer; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    @(Model.Id != 0 ? "Update" : "Create")
+                </a>
+            </div>
+            <div class="col-4">
+                <a asp-action="Index" class="btn btn-success form-control" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Back</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/movieList.js"></script>
+    <script>
+    var movieId = '@Model.Id'
+    </script>
+}
+
